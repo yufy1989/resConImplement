@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.UpdateNetworkAccessConfigPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.UpdateNetworkAccessConfigPo" >
+    <result column="SERIALNUMBER" property="serialnumber" jdbcType="VARCHAR" />
+    <result column="RETURNSTATE" property="returnstate" jdbcType="VARCHAR" />
+    <result column="EFFECTIVEDATE" property="effectivedate" jdbcType="VARCHAR" />
+    <result column="NACID" property="nacid" jdbcType="VARCHAR" />
+    <result column="ICCID" property="iccid" jdbcType="VARCHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.asiainfo.resConImplement.po.UpdateNetworkAccessConfigPo" >
+    insert into UPDATE_NETWORK_ACCESS_CONFIG (SERIALNUMBER, RETURNSTATE, EFFECTIVEDATE, 
+      NACID, ICCID)
+    values (#{serialnumber,jdbcType=VARCHAR}, #{returnstate,jdbcType=VARCHAR}, #{effectivedate,jdbcType=VARCHAR}, 
+      #{nacid,jdbcType=VARCHAR}, #{iccid,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.resConImplement.po.UpdateNetworkAccessConfigPo" >
+    insert into UPDATE_NETWORK_ACCESS_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="serialnumber != null" >
+        SERIALNUMBER,
+      </if>
+      <if test="returnstate != null" >
+        RETURNSTATE,
+      </if>
+      <if test="effectivedate != null" >
+        EFFECTIVEDATE,
+      </if>
+      <if test="nacid != null" >
+        NACID,
+      </if>
+      <if test="iccid != null" >
+        ICCID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="serialnumber != null" >
+        #{serialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="returnstate != null" >
+        #{returnstate,jdbcType=VARCHAR},
+      </if>
+      <if test="effectivedate != null" >
+        #{effectivedate,jdbcType=VARCHAR},
+      </if>
+      <if test="nacid != null" >
+        #{nacid,jdbcType=VARCHAR},
+      </if>
+      <if test="iccid != null" >
+        #{iccid,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

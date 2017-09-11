@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.FlowOrderRecordPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.FlowOrderRecordPo" >
+    <result column="SERIALNUMBER" property="serialnumber" jdbcType="VARCHAR" />
+    <result column="RETURNSTATE" property="returnstate" jdbcType="VARCHAR" />
+    <result column="IMSI" property="imsi" jdbcType="VARCHAR" />
+    <result column="ICCID" property="iccid" jdbcType="VARCHAR" />
+    <result column="EFFECTIVE_DATE" property="effectiveDate" jdbcType="VARCHAR" />
+    <result column="INLINE_PROCESS" property="inlineProcess" jdbcType="BIT" />
+    <result column="NOTIFICATION_URL" property="notificationUrl" jdbcType="VARCHAR" />
+    <result column="SUBSCRIBER_POLICIES" property="subscriberPolicies" jdbcType="VARCHAR" />
+    <result column="ADDITIONAL_POLICIES" property="additionalPolicies" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="Column_11" property="column11" jdbcType="CHAR" />
+  </resultMap>
+  <insert id="insert" parameterType="com.asiainfo.resConImplement.po.FlowOrderRecordPo" >
+    insert into FLOW_ORDER_RECORD (SERIALNUMBER, RETURNSTATE, IMSI, 
+      ICCID, EFFECTIVE_DATE, INLINE_PROCESS, 
+      NOTIFICATION_URL, SUBSCRIBER_POLICIES, ADDITIONAL_POLICIES, 
+      CREATE_TIME, Column_11)
+    values (#{serialnumber,jdbcType=VARCHAR}, #{returnstate,jdbcType=VARCHAR}, #{imsi,jdbcType=VARCHAR}, 
+      #{iccid,jdbcType=VARCHAR}, #{effectiveDate,jdbcType=VARCHAR}, #{inlineProcess,jdbcType=BIT}, 
+      #{notificationUrl,jdbcType=VARCHAR}, #{subscriberPolicies,jdbcType=VARCHAR}, #{additionalPolicies,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{column11,jdbcType=CHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.resConImplement.po.FlowOrderRecordPo" >
+    insert into FLOW_ORDER_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="serialnumber != null" >
+        SERIALNUMBER,
+      </if>
+      <if test="returnstate != null" >
+        RETURNSTATE,
+      </if>
+      <if test="imsi != null" >
+        IMSI,
+      </if>
+      <if test="iccid != null" >
+        ICCID,
+      </if>
+      <if test="effectiveDate != null" >
+        EFFECTIVE_DATE,
+      </if>
+      <if test="inlineProcess != null" >
+        INLINE_PROCESS,
+      </if>
+      <if test="notificationUrl != null" >
+        NOTIFICATION_URL,
+      </if>
+      <if test="subscriberPolicies != null" >
+        SUBSCRIBER_POLICIES,
+      </if>
+      <if test="additionalPolicies != null" >
+        ADDITIONAL_POLICIES,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="column11 != null" >
+        Column_11,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="serialnumber != null" >
+        #{serialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="returnstate != null" >
+        #{returnstate,jdbcType=VARCHAR},
+      </if>
+      <if test="imsi != null" >
+        #{imsi,jdbcType=VARCHAR},
+      </if>
+      <if test="iccid != null" >
+        #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="effectiveDate != null" >
+        #{effectiveDate,jdbcType=VARCHAR},
+      </if>
+      <if test="inlineProcess != null" >
+        #{inlineProcess,jdbcType=BIT},
+      </if>
+      <if test="notificationUrl != null" >
+        #{notificationUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="subscriberPolicies != null" >
+        #{subscriberPolicies,jdbcType=VARCHAR},
+      </if>
+      <if test="additionalPolicies != null" >
+        #{additionalPolicies,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="column11 != null" >
+        #{column11,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+</mapper>

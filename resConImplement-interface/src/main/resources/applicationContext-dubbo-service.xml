@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>  
+<beans xmlns="http://www.springframework.org/schema/beans"  
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+    xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"  
+    xsi:schemaLocation="http://www.springframework.org/schema/beans   
+            http://www.springframework.org/schema/beans/spring-beans-4.0.xsd  
+            http://code.alibabatech.com/schema/dubbo  
+        	http://code.alibabatech.com/schema/dubbo/dubbo.xsd ">
+		<bean id="propertyConfigurer"
+	        class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+	        <property name="locations">
+	            <list>
+	                <value>classpath:dubbo/dubbo.properties</value>
+	            </list>
+	        </property>
+	    </bean>
+         <!--消费方应用名，用于计算依赖关系，不是匹配条件，不要与提供方一样 -->
+         <dubbo:application name="${dubbo.application.name}" owner="${dubbo.application.owner}" />
+         <!--zookeeper注册中心 -->
+		<dubbo:registry protocol="${dubbo.monitor.protocol}" address="${dubbo.registry.address}" />         
+         
+         <!-- 协议 -->
+         <dubbo:protocol name="${dubbo.protocol.name}" port="${dubbo.protocol.port}" />
+         
+         <!-- 生成远程服务代理，可以和本地bean一样使用demoService-->         
+        <!--  <dubbo:reference id="networkAccess"  interface="com.asiainfo.resConImplement.interfaces.NetworkAccess"  check="false" timeout="100000" owner="${dubbo.application.owner}" group="${dubbo.service.group}"/> -->
+         <dubbo:reference id="TcuChangeService"  interface="com.asiainfo.resConImplement.interfaces.askInterfaces.TcuChangeService"  check="false" timeout="100000" owner="${dubbo.application.owner}" group="${dubbo.service.group}"/>
+         <dubbo:reference id="flowQueryService"   interface="com.asiainfo.resConImplement.interfaces.askInterfaces.FlowQueryService"  check="false" timeout="100000" owner="${dubbo.application.owner}" group="${dubbo.service.group}"/>
+         <dubbo:reference id="orderFlowService"  interface="com.asiainfo.resConImplement.interfaces.askInterfaces.OrderFlowService"  check="false" timeout="100000" owner="${dubbo.application.owner}" group="${dubbo.service.group}"/>
+         <dubbo:reference id="interAccessRecordService"  interface="com.asiainfo.resConImplement.interfaces.loggerInterfaces.InterAccessRecordService"  check="false" timeout="100000" owner="${dubbo.application.owner}" group="${dubbo.service.group}"/>
+         <dubbo:reference id="JsperResolveService"  interface="com.asiainfo.resConImplement.interfaces.JsperResolveService"  check="false" timeout="100000" owner="${dubbo.application.owner}" group="${dubbo.service.group}"/>
+         <dubbo:reference id="terminalService"  interface="com.asiainfo.resConImplement.interfaces.askInterfaces.TerminalService"  check="false" timeout="100000" owner="${dubbo.application.owner}" group="${dubbo.service.group}"/> 
+         <dubbo:reference id="transferSimstoAccountService"  interface="com.asiainfo.resConImplement.interfaces.askInterfaces.TransferSimstoAccountService"  check="false" timeout="100000" owner="${dubbo.application.owner}" group="${dubbo.service.group}"/> 
+
+</beans>

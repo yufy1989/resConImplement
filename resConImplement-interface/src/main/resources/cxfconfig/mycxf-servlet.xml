@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:jaxws="http://cxf.apache.org/jaxws"
+	xmlns:jaxrs="http://cxf.apache.org/jaxrs" xmlns:cxf="http://cxf.apache.org/core"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans 
+          http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://cxf.apache.org/jaxrs http://cxf.apache.org/schemas/jaxrs.xsd
+            http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd
+            http://cxf.apache.org/core http://cxf.apache.org/schemas/core.xsd">
+	<!-- 引入CXF Bean定义如下,早期的版本中使用 
+	<import resource="classpath:META-INF/cxf/cxf.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+	<import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+	-->
+	<bean id="inLog" class="org.apache.cxf.interceptor.LoggingInInterceptor" />  
+    <bean id="outLog" class="org.apache.cxf.interceptor.LoggingOutInterceptor"/>
+    <bean id="networkAccessSerImpl" class="com.asiainfo.resConImplement.service.Impl.NetworkAccessSerImpl"/>
+    <bean id="TcuChangeSerImpl" class="com.asiainfo.resConImplement.service.Impl.TcuChangeSerImpl"/>
+	<bean id="orderFlowSerImpl" class="com.asiainfo.resConImplement.service.Impl.OrderFlowSerImpl"/>
+<!-- 	<bean id="flowQuerySerImpl" class="com.asiainfo.resConImplement.service.Impl.FlowQuerySerImpl"/> -->
+	    
+	<jaxws:server id="networkAccessSer" address="/networkAccessSer" serviceClass="com.asiainfo.resConImplement.service.NetworkAccessSer">
+		<jaxws:serviceBean>
+			 <ref bean="networkAccessSerImpl" /> 
+		</jaxws:serviceBean>
+		<jaxws:inInterceptors>
+			 <ref bean="inLog" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			 <ref bean="outLog"/>
+		</jaxws:outInterceptors>
+	</jaxws:server>
+	<jaxws:server id="TcuChangeSer" address="/TcuChangeSer" serviceClass="com.asiainfo.resConImplement.service.TcuChangeSer">
+		<jaxws:serviceBean>
+			 <ref bean="TcuChangeSerImpl" /> 
+		</jaxws:serviceBean>
+		<jaxws:inInterceptors>
+			 <ref bean="inLog" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			 <ref bean="outLog"/>
+		</jaxws:outInterceptors>
+	</jaxws:server>
+	<jaxws:server id="orderFlowSer" address="/orderFlowSer" serviceClass="com.asiainfo.resConImplement.service.OrderFlowSer">
+		<jaxws:serviceBean>
+			 <ref bean="orderFlowSerImpl" /> 
+		</jaxws:serviceBean>
+		<jaxws:inInterceptors>
+			 <ref bean="inLog" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			 <ref bean="outLog"/>
+		</jaxws:outInterceptors>
+	</jaxws:server>
+	<jaxws:server id="flowQuerySer" address="/flowQuerySer" serviceClass="com.asiainfo.resConImplement.service.FlowQuerySer">
+		<jaxws:serviceBean>
+			 <ref bean="flowQuerySerImpl" /> 
+		</jaxws:serviceBean>
+		<jaxws:inInterceptors>
+			 <ref bean="inLog" />
+		</jaxws:inInterceptors>
+		<jaxws:outInterceptors>
+			 <ref bean="outLog"/>
+		</jaxws:outInterceptors>
+	</jaxws:server>
+</beans>

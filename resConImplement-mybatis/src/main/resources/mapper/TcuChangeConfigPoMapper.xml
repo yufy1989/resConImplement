@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.TcuChangeConfigPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.TcuChangeConfigPo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CARPRICESNAME" property="carpricesname" jdbcType="VARCHAR" />
+    <result column="CARMODELSNAME" property="carmodelsname" jdbcType="VARCHAR" />
+    <result column="CARNAME" property="carname" jdbcType="VARCHAR" />
+    <result column="IF_LIVE" property="ifLive" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="RESERVE1" property="reserve1" jdbcType="VARCHAR" />
+    <result column="RESERVE2" property="reserve2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CARPRICESNAME, CARMODELSNAME, CARNAME, IF_LIVE, STATE, CREATETIME, UPDATETIME, 
+    RESERVE1, RESERVE2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from TCU_CHANGE_CONFIG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from TCU_CHANGE_CONFIG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.resConImplement.po.TcuChangeConfigPo" >
+    insert into TCU_CHANGE_CONFIG (ID, CARPRICESNAME, CARMODELSNAME, 
+      CARNAME, IF_LIVE, STATE, 
+      CREATETIME, UPDATETIME, RESERVE1, 
+      RESERVE2)
+    values (#{id,jdbcType=INTEGER}, #{carpricesname,jdbcType=VARCHAR}, #{carmodelsname,jdbcType=VARCHAR}, 
+      #{carname,jdbcType=VARCHAR}, #{ifLive,jdbcType=VARCHAR}, #{state,jdbcType=VARCHAR}, 
+      #{createtime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.resConImplement.po.TcuChangeConfigPo" >
+    insert into TCU_CHANGE_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="carpricesname != null" >
+        CARPRICESNAME,
+      </if>
+      <if test="carmodelsname != null" >
+        CARMODELSNAME,
+      </if>
+      <if test="carname != null" >
+        CARNAME,
+      </if>
+      <if test="ifLive != null" >
+        IF_LIVE,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME,
+      </if>
+      <if test="reserve1 != null" >
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null" >
+        RESERVE2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="carpricesname != null" >
+        #{carpricesname,jdbcType=VARCHAR},
+      </if>
+      <if test="carmodelsname != null" >
+        #{carmodelsname,jdbcType=VARCHAR},
+      </if>
+      <if test="carname != null" >
+        #{carname,jdbcType=VARCHAR},
+      </if>
+      <if test="ifLive != null" >
+        #{ifLive,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null" >
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.resConImplement.po.TcuChangeConfigPo" >
+    update TCU_CHANGE_CONFIG
+    <set >
+      <if test="carpricesname != null" >
+        CARPRICESNAME = #{carpricesname,jdbcType=VARCHAR},
+      </if>
+      <if test="carmodelsname != null" >
+        CARMODELSNAME = #{carmodelsname,jdbcType=VARCHAR},
+      </if>
+      <if test="carname != null" >
+        CARNAME = #{carname,jdbcType=VARCHAR},
+      </if>
+      <if test="ifLive != null" >
+        IF_LIVE = #{ifLive,jdbcType=VARCHAR},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null" >
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.resConImplement.po.TcuChangeConfigPo" >
+    update TCU_CHANGE_CONFIG
+    set CARPRICESNAME = #{carpricesname,jdbcType=VARCHAR},
+      CARMODELSNAME = #{carmodelsname,jdbcType=VARCHAR},
+      CARNAME = #{carname,jdbcType=VARCHAR},
+      IF_LIVE = #{ifLive,jdbcType=VARCHAR},
+      STATE = #{state,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

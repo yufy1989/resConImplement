@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.ext.TransferSimsToAccountConfigPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.TransferSimsToAccountConfigPo" >
+    <id column="ID" property="id" jdbcType="CHAR" />
+    <result column="ICCID" property="iccid" jdbcType="VARCHAR" />
+    <result column="VIN" property="vin" jdbcType="VARCHAR" />
+    <result column="MAKER" property="maker" jdbcType="VARCHAR" />
+    <result column="MODEL" property="model" jdbcType="VARCHAR" />
+    <result column="YEAR" property="year" jdbcType="CHAR" />
+    <result column="FEATURE" property="feature" jdbcType="VARCHAR" />
+    <result column="BUNDLE" property="bundle" jdbcType="VARCHAR" />
+    <result column="SUB_ACCOUNT_NAME" property="subAccountName" jdbcType="VARCHAR" />
+    <result column="COMM_PLAN" property="commPlan" jdbcType="VARCHAR" />
+    <result column="RATE_PLAN" property="ratePlan" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="STATE" property="state" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ICCID, VIN, MAKER, MODEL, YEAR, FEATURE, BUNDLE, SUB_ACCOUNT_NAME, COMM_PLAN, 
+    RATE_PLAN, CREATE_TIME, STATE
+  </sql>
+  <select id="selectAll" resultMap="BaseResultMap"  >
+    select 
+    <include refid="Base_Column_List" />
+    from TRANSFER_SIMS_TO_ACCOUNT_CONFIG
+  </select>
+ 
+</mapper>

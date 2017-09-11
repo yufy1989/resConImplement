@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="resConImplement-interface:war">
+    <output-path>$PROJECT_DIR$/resConImplement-interface/target</output-path>
+    <root id="archive" name="resConImplement-interface.war">
+      <element id="artifact" artifact-name="resConImplement-interface:war exploded" />
+    </root>
+  </artifact>
+</component>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.ext.TcuChangeConfigPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.TcuChangeConfigPo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CARPRICESNAME" property="carpricesname" jdbcType="VARCHAR" />
+    <result column="CARMODELSNAME" property="carmodelsname" jdbcType="VARCHAR" />
+    <result column="CARNAME" property="carname" jdbcType="VARCHAR" />
+    <result column="IF_LIVE" property="ifLive" jdbcType="VARCHAR" />
+    <result column="STATE" property="state" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="RESERVE1" property="reserve1" jdbcType="VARCHAR" />
+    <result column="RESERVE2" property="reserve2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CARPRICESNAME, CARMODELSNAME, CARNAME, IF_LIVE, STATE, CREATETIME, UPDATETIME, 
+    RESERVE1, RESERVE2
+  </sql>
+  <select id="selectByCarPricesName" resultMap="BaseResultMap" parameterType="com.asiainfo.resConImplement.po.TcuChangeConfigPo" >
+    select 
+    <include refid="Base_Column_List" />
+    from TCU_CHANGE_CONFIG
+    where CARPRICESNAME = #{carpricesname,jdbcType=INTEGER}
+    and IF_LIVE= '1'
+  </select>
+</mapper>

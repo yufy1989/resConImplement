@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="resConImplement-core" />
+        <module name="resConImplement-interface" />
+        <module name="resConImplement-mybatis" />
+        <module name="resConImplement-redis" />
+        <module name="resConImplement-SDK" />
+        <module name="resConImplement-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="resConImplement" target="1.8" />
+      <module name="resConImplement-core" target="1.7" />
+      <module name="resConImplement-interface" target="1.7" />
+      <module name="resConImplement-mybatis" target="1.7" />
+      <module name="resConImplement-redis" target="1.7" />
+      <module name="resConImplement-SDK" target="1.7" />
+      <module name="resConImplement-service" target="1.7" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

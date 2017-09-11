@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.ProductPolicyConfigPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.ProductPolicyConfigPo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CALLINGPARTY" property="callingparty" jdbcType="VARCHAR" />
+    <result column="PLATFORMCODE" property="platformcode" jdbcType="VARCHAR" />
+    <result column="PRODUCTID" property="productid" jdbcType="INTEGER" />
+    <result column="PRODUCTNAME" property="productname" jdbcType="VARCHAR" />
+    <result column="POLICYID" property="policyid" jdbcType="INTEGER" />
+    <result column="POLICYNAME" property="policyname" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CALLINGPARTY, PLATFORMCODE, PRODUCTID, PRODUCTNAME, POLICYID, POLICYNAME, STATUS, 
+    CREATETIME, UPDATETIME, REMARK
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from PRODUCT_POLICY_CONFIG
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from PRODUCT_POLICY_CONFIG
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.resConImplement.po.ProductPolicyConfigPo" >
+    insert into PRODUCT_POLICY_CONFIG (ID, CALLINGPARTY, PLATFORMCODE, 
+      PRODUCTID, PRODUCTNAME, POLICYID, 
+      POLICYNAME, STATUS, CREATETIME, 
+      UPDATETIME, REMARK)
+    values (#{id,jdbcType=INTEGER}, #{callingparty,jdbcType=VARCHAR}, #{platformcode,jdbcType=VARCHAR}, 
+      #{productid,jdbcType=INTEGER}, #{productname,jdbcType=VARCHAR}, #{policyid,jdbcType=INTEGER}, 
+      #{policyname,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}, #{createtime,jdbcType=TIMESTAMP}, 
+      #{updatetime,jdbcType=TIMESTAMP}, #{remark,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.resConImplement.po.ProductPolicyConfigPo" >
+    insert into PRODUCT_POLICY_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="callingparty != null" >
+        CALLINGPARTY,
+      </if>
+      <if test="platformcode != null" >
+        PLATFORMCODE,
+      </if>
+      <if test="productid != null" >
+        PRODUCTID,
+      </if>
+      <if test="productname != null" >
+        PRODUCTNAME,
+      </if>
+      <if test="policyid != null" >
+        POLICYID,
+      </if>
+      <if test="policyname != null" >
+        POLICYNAME,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="createtime != null" >
+        CREATETIME,
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME,
+      </if>
+      <if test="remark != null" >
+        REMARK,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="callingparty != null" >
+        #{callingparty,jdbcType=VARCHAR},
+      </if>
+      <if test="platformcode != null" >
+        #{platformcode,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null" >
+        #{productid,jdbcType=INTEGER},
+      </if>
+      <if test="productname != null" >
+        #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="policyid != null" >
+        #{policyid,jdbcType=INTEGER},
+      </if>
+      <if test="policyname != null" >
+        #{policyname,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.resConImplement.po.ProductPolicyConfigPo" >
+    update PRODUCT_POLICY_CONFIG
+    <set >
+      <if test="callingparty != null" >
+        CALLINGPARTY = #{callingparty,jdbcType=VARCHAR},
+      </if>
+      <if test="platformcode != null" >
+        PLATFORMCODE = #{platformcode,jdbcType=VARCHAR},
+      </if>
+      <if test="productid != null" >
+        PRODUCTID = #{productid,jdbcType=INTEGER},
+      </if>
+      <if test="productname != null" >
+        PRODUCTNAME = #{productname,jdbcType=VARCHAR},
+      </if>
+      <if test="policyid != null" >
+        POLICYID = #{policyid,jdbcType=INTEGER},
+      </if>
+      <if test="policyname != null" >
+        POLICYNAME = #{policyname,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=VARCHAR},
+      </if>
+      <if test="createtime != null" >
+        CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="remark != null" >
+        REMARK = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.resConImplement.po.ProductPolicyConfigPo" >
+    update PRODUCT_POLICY_CONFIG
+    set CALLINGPARTY = #{callingparty,jdbcType=VARCHAR},
+      PLATFORMCODE = #{platformcode,jdbcType=VARCHAR},
+      PRODUCTID = #{productid,jdbcType=INTEGER},
+      PRODUCTNAME = #{productname,jdbcType=VARCHAR},
+      POLICYID = #{policyid,jdbcType=INTEGER},
+      POLICYNAME = #{policyname,jdbcType=VARCHAR},
+      STATUS = #{status,jdbcType=VARCHAR},
+      CREATETIME = #{createtime,jdbcType=TIMESTAMP},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      REMARK = #{remark,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -1,0 +1,248 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.InterAccessRecordPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.InterAccessRecordPo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="SERIALNUMBER" property="serialnumber" jdbcType="VARCHAR" />
+    <result column="INTERFACENAME" property="interfacename" jdbcType="VARCHAR" />
+    <result column="EVENTNAME" property="eventname" jdbcType="VARCHAR" />
+    <result column="CHANNELNAME" property="channelname" jdbcType="VARCHAR" />
+    <result column="CHANNELCODE" property="channelcode" jdbcType="VARCHAR" />
+    <result column="ICCID" property="iccid" jdbcType="VARCHAR" />
+    <result column="INPUTPARAMETER" property="inputparameter" jdbcType="VARCHAR" />
+    <result column="QUERYIP" property="queryip" jdbcType="VARCHAR" />
+    <result column="CALLINGPARTY" property="callingparty" jdbcType="VARCHAR" />
+    <result column="PLATFORMCODE" property="platformcode" jdbcType="VARCHAR" />
+    <result column="QUERYSTATE" property="querystate" jdbcType="VARCHAR" />
+    <result column="RESPINFO" property="respinfo" jdbcType="VARCHAR" />
+    <result column="QUERYTIME" property="querytime" jdbcType="TIMESTAMP" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="RESERVE1" property="reserve1" jdbcType="VARCHAR" />
+    <result column="RESERVE2" property="reserve2" jdbcType="VARCHAR" />
+    <result column="RESERVE3" property="reserve3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, SERIALNUMBER, INTERFACENAME, EVENTNAME, CHANNELNAME, CHANNELCODE, ICCID, INPUTPARAMETER, 
+    QUERYIP, CALLINGPARTY, PLATFORMCODE, QUERYSTATE, RESPINFO, QUERYTIME, UPDATETIME, 
+    RESERVE1, RESERVE2, RESERVE3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from INTER_ACCESS_RECORD
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from INTER_ACCESS_RECORD
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.resConImplement.po.InterAccessRecordPo" >
+    insert into INTER_ACCESS_RECORD (ID, SERIALNUMBER, INTERFACENAME, 
+      EVENTNAME, CHANNELNAME, CHANNELCODE, 
+      ICCID, INPUTPARAMETER, QUERYIP, 
+      CALLINGPARTY, PLATFORMCODE, QUERYSTATE, 
+      RESPINFO, QUERYTIME, UPDATETIME, 
+      RESERVE1, RESERVE2, RESERVE3
+      )
+    values (#{id,jdbcType=INTEGER}, #{serialnumber,jdbcType=VARCHAR}, #{interfacename,jdbcType=VARCHAR}, 
+      #{eventname,jdbcType=VARCHAR}, #{channelname,jdbcType=VARCHAR}, #{channelcode,jdbcType=VARCHAR}, 
+      #{iccid,jdbcType=VARCHAR}, #{inputparameter,jdbcType=VARCHAR}, #{queryip,jdbcType=VARCHAR}, 
+      #{callingparty,jdbcType=VARCHAR}, #{platformcode,jdbcType=VARCHAR}, #{querystate,jdbcType=VARCHAR}, 
+      #{respinfo,jdbcType=VARCHAR}, #{querytime,jdbcType=TIMESTAMP}, #{updatetime,jdbcType=TIMESTAMP}, 
+      #{reserve1,jdbcType=VARCHAR}, #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.resConImplement.po.InterAccessRecordPo" >
+    insert into INTER_ACCESS_RECORD
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="serialnumber != null" >
+        SERIALNUMBER,
+      </if>
+      <if test="interfacename != null" >
+        INTERFACENAME,
+      </if>
+      <if test="eventname != null" >
+        EVENTNAME,
+      </if>
+      <if test="channelname != null" >
+        CHANNELNAME,
+      </if>
+      <if test="channelcode != null" >
+        CHANNELCODE,
+      </if>
+      <if test="iccid != null" >
+        ICCID,
+      </if>
+      <if test="inputparameter != null" >
+        INPUTPARAMETER,
+      </if>
+      <if test="queryip != null" >
+        QUERYIP,
+      </if>
+      <if test="callingparty != null" >
+        CALLINGPARTY,
+      </if>
+      <if test="platformcode != null" >
+        PLATFORMCODE,
+      </if>
+      <if test="querystate != null" >
+        QUERYSTATE,
+      </if>
+      <if test="respinfo != null" >
+        RESPINFO,
+      </if>
+      <if test="querytime != null" >
+        QUERYTIME,
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME,
+      </if>
+      <if test="reserve1 != null" >
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null" >
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null" >
+        RESERVE3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="serialnumber != null" >
+        #{serialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="interfacename != null" >
+        #{interfacename,jdbcType=VARCHAR},
+      </if>
+      <if test="eventname != null" >
+        #{eventname,jdbcType=VARCHAR},
+      </if>
+      <if test="channelname != null" >
+        #{channelname,jdbcType=VARCHAR},
+      </if>
+      <if test="channelcode != null" >
+        #{channelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="iccid != null" >
+        #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputparameter != null" >
+        #{inputparameter,jdbcType=VARCHAR},
+      </if>
+      <if test="queryip != null" >
+        #{queryip,jdbcType=VARCHAR},
+      </if>
+      <if test="callingparty != null" >
+        #{callingparty,jdbcType=VARCHAR},
+      </if>
+      <if test="platformcode != null" >
+        #{platformcode,jdbcType=VARCHAR},
+      </if>
+      <if test="querystate != null" >
+        #{querystate,jdbcType=VARCHAR},
+      </if>
+      <if test="respinfo != null" >
+        #{respinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="querytime != null" >
+        #{querytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null" >
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.resConImplement.po.InterAccessRecordPo" >
+    update INTER_ACCESS_RECORD
+    <set >
+      <if test="serialnumber != null" >
+        SERIALNUMBER = #{serialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="interfacename != null" >
+        INTERFACENAME = #{interfacename,jdbcType=VARCHAR},
+      </if>
+      <if test="eventname != null" >
+        EVENTNAME = #{eventname,jdbcType=VARCHAR},
+      </if>
+      <if test="channelname != null" >
+        CHANNELNAME = #{channelname,jdbcType=VARCHAR},
+      </if>
+      <if test="channelcode != null" >
+        CHANNELCODE = #{channelcode,jdbcType=VARCHAR},
+      </if>
+      <if test="iccid != null" >
+        ICCID = #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputparameter != null" >
+        INPUTPARAMETER = #{inputparameter,jdbcType=VARCHAR},
+      </if>
+      <if test="queryip != null" >
+        QUERYIP = #{queryip,jdbcType=VARCHAR},
+      </if>
+      <if test="callingparty != null" >
+        CALLINGPARTY = #{callingparty,jdbcType=VARCHAR},
+      </if>
+      <if test="platformcode != null" >
+        PLATFORMCODE = #{platformcode,jdbcType=VARCHAR},
+      </if>
+      <if test="querystate != null" >
+        QUERYSTATE = #{querystate,jdbcType=VARCHAR},
+      </if>
+      <if test="respinfo != null" >
+        RESPINFO = #{respinfo,jdbcType=VARCHAR},
+      </if>
+      <if test="querytime != null" >
+        QUERYTIME = #{querytime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updatetime != null" >
+        UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null" >
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.resConImplement.po.InterAccessRecordPo" >
+    update INTER_ACCESS_RECORD
+    set SERIALNUMBER = #{serialnumber,jdbcType=VARCHAR},
+      INTERFACENAME = #{interfacename,jdbcType=VARCHAR},
+      EVENTNAME = #{eventname,jdbcType=VARCHAR},
+      CHANNELNAME = #{channelname,jdbcType=VARCHAR},
+      CHANNELCODE = #{channelcode,jdbcType=VARCHAR},
+      ICCID = #{iccid,jdbcType=VARCHAR},
+      INPUTPARAMETER = #{inputparameter,jdbcType=VARCHAR},
+      QUERYIP = #{queryip,jdbcType=VARCHAR},
+      CALLINGPARTY = #{callingparty,jdbcType=VARCHAR},
+      PLATFORMCODE = #{platformcode,jdbcType=VARCHAR},
+      QUERYSTATE = #{querystate,jdbcType=VARCHAR},
+      RESPINFO = #{respinfo,jdbcType=VARCHAR},
+      QUERYTIME = #{querytime,jdbcType=TIMESTAMP},
+      UPDATETIME = #{updatetime,jdbcType=TIMESTAMP},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

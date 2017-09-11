@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/resConImplement.iml" filepath="$PROJECT_DIR$/resConImplement.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resConImplement-SDK/resConImplement-SDK.iml" filepath="$PROJECT_DIR$/resConImplement-SDK/resConImplement-SDK.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resConImplement-core/resConImplement-core.iml" filepath="$PROJECT_DIR$/resConImplement-core/resConImplement-core.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resConImplement-interface/resConImplement-interface.iml" filepath="$PROJECT_DIR$/resConImplement-interface/resConImplement-interface.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resConImplement-mybatis/resConImplement-mybatis.iml" filepath="$PROJECT_DIR$/resConImplement-mybatis/resConImplement-mybatis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resConImplement-redis/resConImplement-redis.iml" filepath="$PROJECT_DIR$/resConImplement-redis/resConImplement-redis.iml" />
+      <module fileurl="file://$PROJECT_DIR$/resConImplement-service/resConImplement-service.iml" filepath="$PROJECT_DIR$/resConImplement-service/resConImplement-service.iml" />
+    </modules>
+  </component>
+</project>

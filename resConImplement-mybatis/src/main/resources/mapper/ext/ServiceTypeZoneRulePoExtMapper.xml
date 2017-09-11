@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.ext.ServiceTypeZoneRulePoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.ServiceTypeZoneRulePo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="zone" property="zone" jdbcType="VARCHAR" />
+    <result column="service_type" property="serviceType" jdbcType="VARCHAR" />
+    <result column="rev_str1" property="revStr1" jdbcType="VARCHAR" />
+    <result column="rev_str2" property="revStr2" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, zone, service_type, rev_str1, rev_str2, remark
+  </sql>
+  <select id="selectByServiceType" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_SERVICETYPE_ZONE_RULE
+    where serviceType = #{serviceType,jdbcType=VARCHAR}
+  </select>
+</mapper>

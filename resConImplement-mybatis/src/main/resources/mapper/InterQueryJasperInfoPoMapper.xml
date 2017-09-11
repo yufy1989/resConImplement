@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.InterQueryJasperInfoPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.InterQueryJasperInfoPo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="SERIALNUMBER" property="serialnumber" jdbcType="VARCHAR" />
+    <result column="QUERYASKINTERFACE" property="queryaskinterface" jdbcType="VARCHAR" />
+    <result column="QUERYSERVICENAME" property="queryservicename" jdbcType="VARCHAR" />
+    <result column="QUERYJASPERINTERFACE" property="queryjasperinterface" jdbcType="VARCHAR" />
+    <result column="ICCID" property="iccid" jdbcType="VARCHAR" />
+    <result column="INPUTPARAMETER" property="inputparameter" jdbcType="VARCHAR" />
+    <result column="RETURNPARAMETER" property="returnparameter" jdbcType="LONGVARCHAR" />
+    <result column="RETURNSTATE" property="returnstate" jdbcType="VARCHAR" />
+    <result column="RETURNtIME" property="returntime" jdbcType="TIMESTAMP" />
+    <result column="RESERVE1" property="reserve1" jdbcType="VARCHAR" />
+    <result column="RESERVE2" property="reserve2" jdbcType="VARCHAR" />
+    <result column="RESERVE3" property="reserve3" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, SERIALNUMBER, QUERYASKINTERFACE, QUERYSERVICENAME, QUERYJASPERINTERFACE, ICCID, 
+    INPUTPARAMETER, RETURNPARAMETER, RETURNSTATE, RETURNtIME, RESERVE1, RESERVE2, RESERVE3
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from INTER_QUERY_JASPER_INFO
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from INTER_QUERY_JASPER_INFO
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.resConImplement.po.InterQueryJasperInfoPo" >
+    insert into INTER_QUERY_JASPER_INFO (ID, SERIALNUMBER, QUERYASKINTERFACE, 
+      QUERYSERVICENAME, QUERYJASPERINTERFACE, 
+      ICCID, INPUTPARAMETER, RETURNPARAMETER, 
+      RETURNSTATE, RETURNtIME, RESERVE1, 
+      RESERVE2, RESERVE3)
+    values (#{id,jdbcType=INTEGER}, #{serialnumber,jdbcType=VARCHAR}, #{queryaskinterface,jdbcType=VARCHAR}, 
+      #{queryservicename,jdbcType=VARCHAR}, #{queryjasperinterface,jdbcType=VARCHAR}, 
+      #{iccid,jdbcType=VARCHAR}, #{inputparameter,jdbcType=VARCHAR}, #{returnparameter,jdbcType=LONGVARCHAR}, 
+      #{returnstate,jdbcType=VARCHAR}, #{returntime,jdbcType=TIMESTAMP}, #{reserve1,jdbcType=VARCHAR}, 
+      #{reserve2,jdbcType=VARCHAR}, #{reserve3,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.resConImplement.po.InterQueryJasperInfoPo" >
+    insert into INTER_QUERY_JASPER_INFO
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="serialnumber != null" >
+        SERIALNUMBER,
+      </if>
+      <if test="queryaskinterface != null" >
+        QUERYASKINTERFACE,
+      </if>
+      <if test="queryservicename != null" >
+        QUERYSERVICENAME,
+      </if>
+      <if test="queryjasperinterface != null" >
+        QUERYJASPERINTERFACE,
+      </if>
+      <if test="iccid != null" >
+        ICCID,
+      </if>
+      <if test="inputparameter != null" >
+        INPUTPARAMETER,
+      </if>
+      <if test="returnparameter != null" >
+        RETURNPARAMETER,
+      </if>
+      <if test="returnstate != null" >
+        RETURNSTATE,
+      </if>
+      <if test="returntime != null" >
+        RETURNtIME,
+      </if>
+      <if test="reserve1 != null" >
+        RESERVE1,
+      </if>
+      <if test="reserve2 != null" >
+        RESERVE2,
+      </if>
+      <if test="reserve3 != null" >
+        RESERVE3,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="serialnumber != null" >
+        #{serialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="queryaskinterface != null" >
+        #{queryaskinterface,jdbcType=VARCHAR},
+      </if>
+      <if test="queryservicename != null" >
+        #{queryservicename,jdbcType=VARCHAR},
+      </if>
+      <if test="queryjasperinterface != null" >
+        #{queryjasperinterface,jdbcType=VARCHAR},
+      </if>
+      <if test="iccid != null" >
+        #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputparameter != null" >
+        #{inputparameter,jdbcType=VARCHAR},
+      </if>
+      <if test="returnparameter != null" >
+        #{returnparameter,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="returnstate != null" >
+        #{returnstate,jdbcType=VARCHAR},
+      </if>
+      <if test="returntime != null" >
+        #{returntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null" >
+        #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        #{reserve3,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.resConImplement.po.InterQueryJasperInfoPo" >
+    update INTER_QUERY_JASPER_INFO
+    <set >
+      <if test="serialnumber != null" >
+        SERIALNUMBER = #{serialnumber,jdbcType=VARCHAR},
+      </if>
+      <if test="queryaskinterface != null" >
+        QUERYASKINTERFACE = #{queryaskinterface,jdbcType=VARCHAR},
+      </if>
+      <if test="queryservicename != null" >
+        QUERYSERVICENAME = #{queryservicename,jdbcType=VARCHAR},
+      </if>
+      <if test="queryjasperinterface != null" >
+        QUERYJASPERINTERFACE = #{queryjasperinterface,jdbcType=VARCHAR},
+      </if>
+      <if test="iccid != null" >
+        ICCID = #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="inputparameter != null" >
+        INPUTPARAMETER = #{inputparameter,jdbcType=VARCHAR},
+      </if>
+      <if test="returnparameter != null" >
+        RETURNPARAMETER = #{returnparameter,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="returnstate != null" >
+        RETURNSTATE = #{returnstate,jdbcType=VARCHAR},
+      </if>
+      <if test="returntime != null" >
+        RETURNtIME = #{returntime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="reserve1 != null" >
+        RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve2 != null" >
+        RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      </if>
+      <if test="reserve3 != null" >
+        RESERVE3 = #{reserve3,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.resConImplement.po.InterQueryJasperInfoPo" >
+    update INTER_QUERY_JASPER_INFO
+    set SERIALNUMBER = #{serialnumber,jdbcType=VARCHAR},
+      QUERYASKINTERFACE = #{queryaskinterface,jdbcType=VARCHAR},
+      QUERYSERVICENAME = #{queryservicename,jdbcType=VARCHAR},
+      QUERYJASPERINTERFACE = #{queryjasperinterface,jdbcType=VARCHAR},
+      ICCID = #{iccid,jdbcType=VARCHAR},
+      INPUTPARAMETER = #{inputparameter,jdbcType=VARCHAR},
+      RETURNPARAMETER = #{returnparameter,jdbcType=LONGVARCHAR},
+      RETURNSTATE = #{returnstate,jdbcType=VARCHAR},
+      RETURNtIME = #{returntime,jdbcType=TIMESTAMP},
+      RESERVE1 = #{reserve1,jdbcType=VARCHAR},
+      RESERVE2 = #{reserve2,jdbcType=VARCHAR},
+      RESERVE3 = #{reserve3,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

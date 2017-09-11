@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.ext.ProductPolicyConfigPoExtMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.ProductPolicyConfigPo" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="CALLINGPARTY" property="callingparty" jdbcType="VARCHAR" />
+    <result column="PLATFORMCODE" property="platformcode" jdbcType="VARCHAR" />
+    <result column="PRODUCTID" property="productid" jdbcType="INTEGER" />
+    <result column="PRODUCTNAME" property="productname" jdbcType="VARCHAR" />
+    <result column="POLICYID" property="policyid" jdbcType="INTEGER" />
+    <result column="POLICYNAME" property="policyname" jdbcType="VARCHAR" />
+    <result column="STATUS" property="status" jdbcType="VARCHAR" />
+    <result column="CREATETIME" property="createtime" jdbcType="TIMESTAMP" />
+    <result column="UPDATETIME" property="updatetime" jdbcType="TIMESTAMP" />
+    <result column="REMARK" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, CALLINGPARTY, PLATFORMCODE, PRODUCTID, PRODUCTNAME, POLICYID, POLICYNAME, STATUS, 
+    CREATETIME, UPDATETIME, REMARK
+  </sql>
+  
+  <!-- 查询策略名称 -->
+  <select id="selectPolicyByProductId" resultMap="BaseResultMap">
+  	 SELECT <include refid="Base_Column_List"/> FROM PRODUCT_POLICY_CONFIG
+  	 WHERE PRODUCTID =#{productId}
+  </select>
+</mapper>

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.ServiceTypeZoneRulePoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.ServiceTypeZoneRulePo" >
+    <id column="id" property="id" jdbcType="VARCHAR" />
+    <result column="zone" property="zone" jdbcType="VARCHAR" />
+    <result column="service_type" property="serviceType" jdbcType="VARCHAR" />
+    <result column="rev_str1" property="revStr1" jdbcType="VARCHAR" />
+    <result column="rev_str2" property="revStr2" jdbcType="VARCHAR" />
+    <result column="remark" property="remark" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, zone, service_type, rev_str1, rev_str2, remark
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TD_B_SERVICETYPE_ZONE_RULE
+    where id = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from TD_B_SERVICETYPE_ZONE_RULE
+    where id = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.resConImplement.po.ServiceTypeZoneRulePo" >
+    insert into TD_B_SERVICETYPE_ZONE_RULE (id, zone, service_type, 
+      rev_str1, rev_str2, remark
+      )
+    values (#{id,jdbcType=VARCHAR}, #{zone,jdbcType=VARCHAR}, #{serviceType,jdbcType=VARCHAR}, 
+      #{revStr1,jdbcType=VARCHAR}, #{revStr2,jdbcType=VARCHAR}, #{remark,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.resConImplement.po.ServiceTypeZoneRulePo" >
+    insert into TD_B_SERVICETYPE_ZONE_RULE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="zone != null" >
+        zone,
+      </if>
+      <if test="serviceType != null" >
+        service_type,
+      </if>
+      <if test="revStr1 != null" >
+        rev_str1,
+      </if>
+      <if test="revStr2 != null" >
+        rev_str2,
+      </if>
+      <if test="remark != null" >
+        remark,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="zone != null" >
+        #{zone,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceType != null" >
+        #{serviceType,jdbcType=VARCHAR},
+      </if>
+      <if test="revStr1 != null" >
+        #{revStr1,jdbcType=VARCHAR},
+      </if>
+      <if test="revStr2 != null" >
+        #{revStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        #{remark,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.resConImplement.po.ServiceTypeZoneRulePo" >
+    update TD_B_SERVICETYPE_ZONE_RULE
+    <set >
+      <if test="zone != null" >
+        zone = #{zone,jdbcType=VARCHAR},
+      </if>
+      <if test="serviceType != null" >
+        service_type = #{serviceType,jdbcType=VARCHAR},
+      </if>
+      <if test="revStr1 != null" >
+        rev_str1 = #{revStr1,jdbcType=VARCHAR},
+      </if>
+      <if test="revStr2 != null" >
+        rev_str2 = #{revStr2,jdbcType=VARCHAR},
+      </if>
+      <if test="remark != null" >
+        remark = #{remark,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.resConImplement.po.ServiceTypeZoneRulePo" >
+    update TD_B_SERVICETYPE_ZONE_RULE
+    set zone = #{zone,jdbcType=VARCHAR},
+      service_type = #{serviceType,jdbcType=VARCHAR},
+      rev_str1 = #{revStr1,jdbcType=VARCHAR},
+      rev_str2 = #{revStr2,jdbcType=VARCHAR},
+      remark = #{remark,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

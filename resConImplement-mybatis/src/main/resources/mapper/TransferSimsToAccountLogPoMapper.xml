@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.TransferSimsToAccountLogPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.TransferSimsToAccountLogPo" >
+    <id column="ID" property="id" jdbcType="VARCHAR" />
+    <result column="ICCID" property="iccid" jdbcType="VARCHAR" />
+    <result column="VIN" property="vin" jdbcType="VARCHAR" />
+    <result column="MAKER" property="maker" jdbcType="VARCHAR" />
+    <result column="MODEL" property="model" jdbcType="VARCHAR" />
+    <result column="YEAR" property="year" jdbcType="CHAR" />
+    <result column="FEATURE" property="feature" jdbcType="VARCHAR" />
+    <result column="BUNDLE" property="bundle" jdbcType="VARCHAR" />
+    <result column="CODE" property="code" jdbcType="CHAR" />
+    <result column="MESSAGE" property="message" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="UPDATE_TIME" property="updateTime" jdbcType="TIMESTAMP" />
+    <result column="revCol" property="revcol" jdbcType="VARCHAR" />
+    <result column="revCol2" property="revcol2" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ICCID, VIN, MAKER, MODEL, YEAR, FEATURE, BUNDLE, CODE, MESSAGE, CREATE_TIME, 
+    UPDATE_TIME, revCol, revCol2
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TRANSFER_SIMS_TO_ACCOUNT_LOG
+    where ID = #{id,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from TRANSFER_SIMS_TO_ACCOUNT_LOG
+    where ID = #{id,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.resConImplement.po.TransferSimsToAccountLogPo" >
+    insert into TRANSFER_SIMS_TO_ACCOUNT_LOG (ID, ICCID, VIN, 
+      MAKER, MODEL, YEAR, FEATURE, 
+      BUNDLE, CODE, MESSAGE, 
+      CREATE_TIME, UPDATE_TIME, revCol, 
+      revCol2)
+    values (#{id,jdbcType=VARCHAR}, #{iccid,jdbcType=VARCHAR}, #{vin,jdbcType=VARCHAR}, 
+      #{maker,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{year,jdbcType=CHAR}, #{feature,jdbcType=VARCHAR}, 
+      #{bundle,jdbcType=VARCHAR}, #{code,jdbcType=CHAR}, #{message,jdbcType=VARCHAR}, 
+      #{createTime,jdbcType=TIMESTAMP}, #{updateTime,jdbcType=TIMESTAMP}, #{revcol,jdbcType=VARCHAR}, 
+      #{revcol2,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.resConImplement.po.TransferSimsToAccountLogPo" >
+    insert into TRANSFER_SIMS_TO_ACCOUNT_LOG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="iccid != null" >
+        ICCID,
+      </if>
+      <if test="vin != null" >
+        VIN,
+      </if>
+      <if test="maker != null" >
+        MAKER,
+      </if>
+      <if test="model != null" >
+        MODEL,
+      </if>
+      <if test="year != null" >
+        YEAR,
+      </if>
+      <if test="feature != null" >
+        FEATURE,
+      </if>
+      <if test="bundle != null" >
+        BUNDLE,
+      </if>
+      <if test="code != null" >
+        CODE,
+      </if>
+      <if test="message != null" >
+        MESSAGE,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME,
+      </if>
+      <if test="revcol != null" >
+        revCol,
+      </if>
+      <if test="revcol2 != null" >
+        revCol2,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=VARCHAR},
+      </if>
+      <if test="iccid != null" >
+        #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="maker != null" >
+        #{maker,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=CHAR},
+      </if>
+      <if test="feature != null" >
+        #{feature,jdbcType=VARCHAR},
+      </if>
+      <if test="bundle != null" >
+        #{bundle,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        #{code,jdbcType=CHAR},
+      </if>
+      <if test="message != null" >
+        #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="revcol != null" >
+        #{revcol,jdbcType=VARCHAR},
+      </if>
+      <if test="revcol2 != null" >
+        #{revcol2,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.resConImplement.po.TransferSimsToAccountLogPo" >
+    update TRANSFER_SIMS_TO_ACCOUNT_LOG
+    <set >
+      <if test="iccid != null" >
+        ICCID = #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        VIN = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="maker != null" >
+        MAKER = #{maker,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        MODEL = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        YEAR = #{year,jdbcType=CHAR},
+      </if>
+      <if test="feature != null" >
+        FEATURE = #{feature,jdbcType=VARCHAR},
+      </if>
+      <if test="bundle != null" >
+        BUNDLE = #{bundle,jdbcType=VARCHAR},
+      </if>
+      <if test="code != null" >
+        CODE = #{code,jdbcType=CHAR},
+      </if>
+      <if test="message != null" >
+        MESSAGE = #{message,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updateTime != null" >
+        UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="revcol != null" >
+        revCol = #{revcol,jdbcType=VARCHAR},
+      </if>
+      <if test="revcol2 != null" >
+        revCol2 = #{revcol2,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.resConImplement.po.TransferSimsToAccountLogPo" >
+    update TRANSFER_SIMS_TO_ACCOUNT_LOG
+    set ICCID = #{iccid,jdbcType=VARCHAR},
+      VIN = #{vin,jdbcType=VARCHAR},
+      MAKER = #{maker,jdbcType=VARCHAR},
+      MODEL = #{model,jdbcType=VARCHAR},
+      YEAR = #{year,jdbcType=CHAR},
+      FEATURE = #{feature,jdbcType=VARCHAR},
+      BUNDLE = #{bundle,jdbcType=VARCHAR},
+      CODE = #{code,jdbcType=CHAR},
+      MESSAGE = #{message,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      UPDATE_TIME = #{updateTime,jdbcType=TIMESTAMP},
+      revCol = #{revcol,jdbcType=VARCHAR},
+      revCol2 = #{revcol2,jdbcType=VARCHAR}
+    where ID = #{id,jdbcType=VARCHAR}
+  </update>
+</mapper>

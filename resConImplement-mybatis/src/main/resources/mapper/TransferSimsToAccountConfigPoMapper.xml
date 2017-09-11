@@ -1,0 +1,188 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.asiainfo.resConImplement.mapper.TransferSimsToAccountConfigPoMapper" >
+  <resultMap id="BaseResultMap" type="com.asiainfo.resConImplement.po.TransferSimsToAccountConfigPo" >
+    <id column="ID" property="id" jdbcType="CHAR" />
+    <result column="ICCID" property="iccid" jdbcType="VARCHAR" />
+    <result column="VIN" property="vin" jdbcType="VARCHAR" />
+    <result column="MAKER" property="maker" jdbcType="VARCHAR" />
+    <result column="MODEL" property="model" jdbcType="VARCHAR" />
+    <result column="YEAR" property="year" jdbcType="CHAR" />
+    <result column="FEATURE" property="feature" jdbcType="VARCHAR" />
+    <result column="BUNDLE" property="bundle" jdbcType="VARCHAR" />
+    <result column="SUB_ACCOUNT_NAME" property="subAccountName" jdbcType="VARCHAR" />
+    <result column="COMM_PLAN" property="commPlan" jdbcType="VARCHAR" />
+    <result column="RATE_PLAN" property="ratePlan" jdbcType="VARCHAR" />
+    <result column="CREATE_TIME" property="createTime" jdbcType="TIMESTAMP" />
+    <result column="STATE" property="state" jdbcType="CHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ICCID, VIN, MAKER, MODEL, YEAR, FEATURE, BUNDLE, SUB_ACCOUNT_NAME, COMM_PLAN, 
+    RATE_PLAN, CREATE_TIME, STATE
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.String" >
+    select 
+    <include refid="Base_Column_List" />
+    from TRANSFER_SIMS_TO_ACCOUNT_CONFIG
+    where ID = #{id,jdbcType=CHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String" >
+    delete from TRANSFER_SIMS_TO_ACCOUNT_CONFIG
+    where ID = #{id,jdbcType=CHAR}
+  </delete>
+  <insert id="insert" parameterType="com.asiainfo.resConImplement.po.TransferSimsToAccountConfigPo" >
+    insert into TRANSFER_SIMS_TO_ACCOUNT_CONFIG (ID, ICCID, VIN, 
+      MAKER, MODEL, YEAR, FEATURE, 
+      BUNDLE, SUB_ACCOUNT_NAME, COMM_PLAN, 
+      RATE_PLAN, CREATE_TIME, STATE
+      )
+    values (#{id,jdbcType=CHAR}, #{iccid,jdbcType=VARCHAR}, #{vin,jdbcType=VARCHAR}, 
+      #{maker,jdbcType=VARCHAR}, #{model,jdbcType=VARCHAR}, #{year,jdbcType=CHAR}, #{feature,jdbcType=VARCHAR}, 
+      #{bundle,jdbcType=VARCHAR}, #{subAccountName,jdbcType=VARCHAR}, #{commPlan,jdbcType=VARCHAR}, 
+      #{ratePlan,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}, #{state,jdbcType=CHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.asiainfo.resConImplement.po.TransferSimsToAccountConfigPo" >
+    insert into TRANSFER_SIMS_TO_ACCOUNT_CONFIG
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="iccid != null" >
+        ICCID,
+      </if>
+      <if test="vin != null" >
+        VIN,
+      </if>
+      <if test="maker != null" >
+        MAKER,
+      </if>
+      <if test="model != null" >
+        MODEL,
+      </if>
+      <if test="year != null" >
+        YEAR,
+      </if>
+      <if test="feature != null" >
+        FEATURE,
+      </if>
+      <if test="bundle != null" >
+        BUNDLE,
+      </if>
+      <if test="subAccountName != null" >
+        SUB_ACCOUNT_NAME,
+      </if>
+      <if test="commPlan != null" >
+        COMM_PLAN,
+      </if>
+      <if test="ratePlan != null" >
+        RATE_PLAN,
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME,
+      </if>
+      <if test="state != null" >
+        STATE,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=CHAR},
+      </if>
+      <if test="iccid != null" >
+        #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="maker != null" >
+        #{maker,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        #{year,jdbcType=CHAR},
+      </if>
+      <if test="feature != null" >
+        #{feature,jdbcType=VARCHAR},
+      </if>
+      <if test="bundle != null" >
+        #{bundle,jdbcType=VARCHAR},
+      </if>
+      <if test="subAccountName != null" >
+        #{subAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="commPlan != null" >
+        #{commPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="ratePlan != null" >
+        #{ratePlan,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        #{state,jdbcType=CHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.asiainfo.resConImplement.po.TransferSimsToAccountConfigPo" >
+    update TRANSFER_SIMS_TO_ACCOUNT_CONFIG
+    <set >
+      <if test="iccid != null" >
+        ICCID = #{iccid,jdbcType=VARCHAR},
+      </if>
+      <if test="vin != null" >
+        VIN = #{vin,jdbcType=VARCHAR},
+      </if>
+      <if test="maker != null" >
+        MAKER = #{maker,jdbcType=VARCHAR},
+      </if>
+      <if test="model != null" >
+        MODEL = #{model,jdbcType=VARCHAR},
+      </if>
+      <if test="year != null" >
+        YEAR = #{year,jdbcType=CHAR},
+      </if>
+      <if test="feature != null" >
+        FEATURE = #{feature,jdbcType=VARCHAR},
+      </if>
+      <if test="bundle != null" >
+        BUNDLE = #{bundle,jdbcType=VARCHAR},
+      </if>
+      <if test="subAccountName != null" >
+        SUB_ACCOUNT_NAME = #{subAccountName,jdbcType=VARCHAR},
+      </if>
+      <if test="commPlan != null" >
+        COMM_PLAN = #{commPlan,jdbcType=VARCHAR},
+      </if>
+      <if test="ratePlan != null" >
+        RATE_PLAN = #{ratePlan,jdbcType=VARCHAR},
+      </if>
+      <if test="createTime != null" >
+        CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="state != null" >
+        STATE = #{state,jdbcType=CHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.asiainfo.resConImplement.po.TransferSimsToAccountConfigPo" >
+    update TRANSFER_SIMS_TO_ACCOUNT_CONFIG
+    set ICCID = #{iccid,jdbcType=VARCHAR},
+      VIN = #{vin,jdbcType=VARCHAR},
+      MAKER = #{maker,jdbcType=VARCHAR},
+      MODEL = #{model,jdbcType=VARCHAR},
+      YEAR = #{year,jdbcType=CHAR},
+      FEATURE = #{feature,jdbcType=VARCHAR},
+      BUNDLE = #{bundle,jdbcType=VARCHAR},
+      SUB_ACCOUNT_NAME = #{subAccountName,jdbcType=VARCHAR},
+      COMM_PLAN = #{commPlan,jdbcType=VARCHAR},
+      RATE_PLAN = #{ratePlan,jdbcType=VARCHAR},
+      CREATE_TIME = #{createTime,jdbcType=TIMESTAMP},
+      STATE = #{state,jdbcType=CHAR}
+    where ID = #{id,jdbcType=CHAR}
+  </update>
+</mapper>
